@@ -28,18 +28,19 @@ public class MainActivity extends AppCompatActivity {
             Login(username);
         }else {
             setContentView(R.layout.activity_main);
+
+
+            button = findViewById(R.id.LoginButton);
+            button.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    EditText userNameET = (EditText) findViewById(R.id.UserNameText);
+                    String userName = userNameET.getText().toString();
+                    Login(userName);
+                }
+            });
         }
-
-        button = findViewById(R.id.LoginButton);
-        button.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v){
-                EditText userNameET = (EditText) findViewById(R.id.UserNameText);
-                String userName = userNameET.getText().toString();
-                Login(userName);
-            }
-        });
     }
 
     private void Login(String userName) {

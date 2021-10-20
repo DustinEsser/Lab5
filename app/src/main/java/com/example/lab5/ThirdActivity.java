@@ -55,10 +55,12 @@ public class ThirdActivity extends AppCompatActivity {
                 String date = dateFormat.format(new Date());
 
                 if(noteid ==-1) {
+                    Log.e(null, "save");
                     title = "NOTE_" + (NoteAppMain.notes.size()+1);
                     dbHelper.saveNotes(name, title, content, date);
                 }
                 else{
+                    Log.e(null, "update with: " + content);
                     title = "NOTE_" + (noteid+1);
                     dbHelper.updateNote(title, date, content, name);
                 }

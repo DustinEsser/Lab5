@@ -2,6 +2,7 @@ package com.example.lab5;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.lab5.Note;
 
@@ -52,8 +53,9 @@ public class DBHelper {
         sqLiteDatabase.execSQL(String.format("INSERT INTO notes (username, date, title, content) VALUES ('%s', '%s', '%s', '%s')", username, date, title, content));
     }
 
-    public void updateNote(String username, String title, String content, String date){
+    public void updateNote(String title, String date, String content, String username){
         createTable();
+        Log.e(null, "content = " + content);
         sqLiteDatabase.execSQL(String.format("UPDATE notes set content = '%s', date = '%s' where title = '%s' and username = '%s'", content, date, title, username));
     }
 }
